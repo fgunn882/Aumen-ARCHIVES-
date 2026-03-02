@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUMEN Archives</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+body{background:#f4f4f4;color:#222;scroll-behavior:smooth;}
+
+.hero{
+height:100vh;
+background:url('https://i.ibb.co/bR8R0BVV/IMG-0895.jpg') center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero-content{
+background:rgba(0,0,0,0.6);
+padding:40px;
+border-radius:10px;
+}
+
+.hero h1{font-size:2.5rem;margin-bottom:10px;}
+.hero p{margin-bottom:20px;}
+
+.btn{
+padding:12px 25px;
+background:black;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+text-decoration:none;
+}
+
+.products{padding:50px 20px;background:white;}
+.products h2{text-align:center;margin-bottom:30px;}
+
+.carousel{
+display:flex;
+overflow-x:auto;
+gap:20px;
+scroll-behavior:smooth;
+}
+
+.product-card{
+min-width:250px;
+background:#fafafa;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.product-card img{
+width:100%;
+border-radius:8px;
+}
+
+.price{font-weight:bold;margin:10px 0;}
+
+.cart{padding:50px 20px;}
+.cart h2{text-align:center;margin-bottom:20px;}
+
+input{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="hero-content">
+<h1>AUMEN Archives</h1>
+<p>Fresh Finds, Best Prices</p>
+<a href="#products" class="btn">Shop Now</a>
+</div>
+</section>
+
+<section class="products" id="products">
+<h2>Our Collection</h2>
+
+<div class="carousel">
+
+<div class="product-card">
+<img src="https://i.ibb.co/ympJRRQd/7fe68f1eb866a7ab556f92d10328b942.jpg">
+<h3>Urban Classic Tee</h3>
+<p class="price">₹799</p>
+<button class="btn" onclick="addToCart('Urban Classic Tee',799)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+<img src="https://i.ibb.co/ympJRRQd/7fe68f1eb866a7ab556f92d10328b942.jpg">
+<h3>Minimal Oversized Tee</h3>
+<p class="price">₹899</p>
+<button class="btn" onclick="addToCart('Minimal Oversized Tee',899)">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<section class="cart">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+
+<input type="text" id="customerName" placeholder="Your Name">
+<input type="tel" id="customerPhone" placeholder="Your Phone Number">
+
+<button class="btn" onclick="placeOrder()">Place Order via Email</button>
+</section>
+
+<a href="https://wa.me/7990133529" target="_blank" class="whatsapp">💬</a>
+
+<script>
+let cart=[];
+
+function addToCart(name,price){
+cart.push({name,price});
+displayCart();
+}
+
+function displayCart(){
+let cartDiv=document.getElementById("cartItems");
+cartDiv.innerHTML="";
+let total=0;
+
+cart.forEach(item=>{
+cartDiv.innerHTML+=`<p>${item.name} - ₹${item.price}</p>`;
+total+=item.price;
+});
+
+if(cart.length>0){
+cartDiv.innerHTML+=`<hr><strong>Total: ₹${total}</strong>`;
+}
+}
+
+function placeOrder(){
+let name=document.getElementById("customerName").value;
+let phone=document.getElementById("customerPhone").value;
+
+if(cart.length===0){alert("Cart is empty!");return;}
+if(name===""||phone===""){alert("Fill all details!");return;}
+
+let items=cart.map(item=>item.name+" - ₹"+item.price).join("%0D%0A");
+let total=cart.reduce((sum,item)=>sum+item.price,0);
+
+let subject="New Order from AUMEN Archives";
+let body=`Customer Name: ${name}%0D%0APhone: ${phone}%0D%0A%0D%0AItems:%0D%0A${items}%0D%0A%0D%0ATotal: ₹${total}`;
+
+window.location.href=`mailto:omtriapthi@gmail.com?subject=${subject}&body=${body}`;
+}
+</script>
+
+</body>
+</html>
