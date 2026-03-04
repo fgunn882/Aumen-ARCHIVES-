@@ -1,271 +1,143 @@
-<!DOCTYPE html>
+
+
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AUMEN Archives</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
 body{
-  background:#f5f5f5;
-  color:#222;
-  scroll-behavior:smooth;
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:#111;
+    color:white;
 }
-
-/* HERO SECTION */
+header{
+    background:#000;
+    padding:20px;
+    text-align:center;
+}
+header h1{
+    margin:0;
+    font-size:32px;
+    letter-spacing:3px;
+}
+nav{
+    margin-top:10px;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:500;
+}
 .hero{
-  height:100vh;
-  background:url('https://i.ibb.co/bR8R0BVV/IMG-0895.jpg') center/cover no-repeat;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
-  padding:20px;
+    background:url('https://i.ibb.co/8D8J6GZ/aumen.jpg') center/cover no-repeat;
+    height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
-
-.hero-content{
-  background:rgba(0,0,0,0.6);
-  padding:40px;
-  border-radius:12px;
-  max-width:500px;
+.hero h2{
+    font-size:40px;
+    background:rgba(0,0,0,0.6);
+    padding:20px;
 }
-
-.hero h1{
-  font-size:2.7rem;
-  margin-bottom:10px;
+.section{
+    padding:50px 20px;
+    text-align:center;
 }
-
-.hero p{
-  margin-bottom:20px;
-  font-size:1.1rem;
-}
-
-.btn{
-  padding:12px 25px;
-  background:black;
-  color:white;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  text-decoration:none;
-  font-size:1rem;
-}
-
-.btn:hover{
-  background:#444;
-}
-
-/* PRODUCTS */
 .products{
-  padding:60px 20px;
-  background:white;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
 }
-
-.products h2{
-  text-align:center;
-  margin-bottom:40px;
-  font-size:2rem;
+.card{
+    background:#1c1c1c;
+    padding:20px;
+    border-radius:10px;
+    width:250px;
 }
-
-.carousel{
-  display:flex;
-  overflow-x:auto;
-  gap:20px;
-  scroll-snap-type:x mandatory;
+.card img{
+    width:100%;
+    border-radius:10px;
 }
-
-.carousel::-webkit-scrollbar{
-  display:none;
+.card h3{
+    margin:15px 0 10px;
 }
-
-.product-card{
-  min-width:260px;
-  background:#fafafa;
-  padding:15px;
-  border-radius:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-  text-align:center;
-  scroll-snap-align:start;
-  transition:0.3s;
+.buy-btn{
+    background:#25D366;
+    color:white;
+    padding:10px 15px;
+    text-decoration:none;
+    border-radius:5px;
+    display:inline-block;
+    margin-top:10px;
 }
-
-.product-card:hover{
-  transform:translateY(-5px);
+footer{
+    background:#000;
+    padding:20px;
+    text-align:center;
+    font-size:14px;
 }
-
-.product-card img{
-  width:100%;
-  border-radius:10px;
-}
-
-.product-card h3{
-  margin:10px 0 5px;
-}
-
-.price{
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-/* CART SECTION */
-.cart{
-  padding:60px 20px;
-}
-
-.cart h2{
-  text-align:center;
-  margin-bottom:20px;
-}
-
-#cartItems{
-  margin-bottom:20px;
-}
-
-input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-
-.total{
-  font-weight:bold;
-  margin-top:10px;
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px;
-  border-radius:50%;
-  font-size:20px;
-  text-decoration:none;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+footer a{
+    color:#25D366;
+    text-decoration:none;
 }
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
+<header>
+    <h1>AUMEN ARCHIVES</h1>
+    <nav>
+        <a href="#jerseys">Jerseys</a>
+        <a href="#tshirts">T-Shirts</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
 <section class="hero">
-  <div class="hero-content">
-    <h1>AUMEN Archives</h1>
-    <p>Fresh Finds, Best Prices</p>
-    <a href="#products" class="btn">Shop Now</a>
-  </div>
+    <h2>Premium Streetwear Collection</h2>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <h2>Our Collection</h2>
-
-  <div class="carousel" id="carousel">
-
-    <div class="product-card">
-      <img src="https://i.ibb.co/ympJRRQd/7fe68f1eb866a7ab556f92d10328b942.jpg">
-      <h3>Urban Classic Tee</h3>
-      <p class="price">₹799</p>
-      <button class="btn" onclick="addToCart('Urban Classic Tee',799)">Add to Cart</button>
+<section class="section" id="jerseys">
+    <h2>Jerseys Collection</h2>
+    <div class="products">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" alt="Jersey">
+            <h3>Football Jersey</h3>
+            <a class="buy-btn" href="https://wa.me/917990133529?text=I%20want%20to%20buy%20Football%20Jersey%20from%20AUMEN%20Archives">Buy on WhatsApp</a>
+        </div>
     </div>
-
-    <div class="product-card">
-      <img src="https://i.ibb.co/ympJRRQd/7fe68f1eb866a7ab556f92d10328b942.jpg">
-      <h3>Minimal Oversized Tee</h3>
-      <p class="price">₹899</p>
-      <button class="btn" onclick="addToCart('Minimal Oversized Tee',899)">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://i.ibb.co/ympJRRQd/7fe68f1eb866a7ab556f92d10328b942.jpg">
-      <h3>Vintage Street Shirt</h3>
-      <p class="price">₹999</p>
-      <button class="btn" onclick="addToCart('Vintage Street Shirt',999)">Add to Cart</button>
-    </div>
-
-  </div>
 </section>
 
-<!-- CART -->
-<section class="cart">
-  <h2>Your Cart</h2>
-
-  <div id="cartItems"></div>
-
-  <input type="text" id="customerName" placeholder="Your Name">
-  <input type="tel" id="customerPhone" placeholder="Your Phone Number">
-
-  <button class="btn" onclick="placeOrder()">Place Order via Email</button>
+<section class="section" id="tshirts">
+    <h2>T-Shirt Collection</h2>
+    <div class="products">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Tshirt">
+            <h3>Oversized T-Shirt</h3>
+            <a class="buy-btn" href="https://wa.me/917990133529?text=I%20want%20to%20buy%20Oversized%20Tshirt%20from%20AUMEN%20Archives">Buy on WhatsApp</a>
+        </div>
+    </div>
 </section>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/7990133529" target="_blank" class="whatsapp">💬</a>
+<section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:omtriapthi@gmail.com">omtriapthi@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/aumenarchives" target="_blank">@aumenarchives</a></p>
+    <p>WhatsApp: <a href="https://wa.me/917990133529">7990133529</a></p>
+</section>
 
-<script>
-let cart = [];
-
-function addToCart(name, price){
-  cart.push({name, price});
-  displayCart();
-}
-
-function displayCart(){
-  let cartDiv = document.getElementById("cartItems");
-  cartDiv.innerHTML = "";
-  let total = 0;
-
-  cart.forEach(item=>{
-    cartDiv.innerHTML += `<p>${item.name} - ₹${item.price}</p>`;
-    total += item.price;
-  });
-
-  if(cart.length > 0){
-    cartDiv.innerHTML += `<hr><p class="total">Total: ₹${total}</p>`;
-  }
-}
-
-function placeOrder(){
-  let name = document.getElementById("customerName").value;
-  let phone = document.getElementById("customerPhone").value;
-
-  if(cart.length === 0){
-    alert("Cart is empty!");
-    return;
-  }
-
-  if(name === "" || phone === ""){
-    alert("Please fill all details!");
-    return;
-  }
-
-  let items = cart.map(item => item.name + " - ₹" + item.price).join("%0D%0A");
-  let total = cart.reduce((sum,item)=>sum+item.price,0);
-
-  let subject = "New Order from AUMEN Archives";
-  let body = `Customer Name: ${name}%0D%0APhone: ${phone}%0D%0A%0D%0AItems Ordered:%0D%0A${items}%0D%0A%0D%0ATotal: ₹${total}`;
-
-  window.location.href = `mailto:omtriapthi@gmail.com?subject=${subject}&body=${body}`;
-}
-
-/* Auto Slide Carousel */
-let carousel = document.getElementById("carousel");
-setInterval(()=>{
-  carousel.scrollBy({left:280, behavior:'smooth'});
-},3000);
-</script>
+<footer>
+    © 2026 AUMEN Archives | Built with ❤️
+</footer>
 
 </body>
 </html>
